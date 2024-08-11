@@ -54,6 +54,8 @@ function calculateParallelogramArea(){
     console.log('Parallelogram Area : '+area);
     //show ParallelogramArea
     setElementInnerText('parallelogram-area', area);
+
+    addToCalculationEntry('parallelogram', area); 
 }
 
 function calculateEllipseArea(){
@@ -115,6 +117,29 @@ function setElementInnerText(elementID, area){
     element.innerText = area;
 }
 
+//add to calculation entry
+/**
+ * 1. get the element where you want to add the dynamic html
+ * 2. Create an element where you want to add
+ * 3. If needed add some class
+ * 4. Set innerHTML, it could be dynamic template string
+ * 5. Append the created element as a child of the parent
+
+ */
+function addToCalculationEntry(areaType, area){
+    console.log(areaType+' '+area);
+    const calculationEntry = document.getElementById('calculation-entry');
+
+    const p = document.createElement('p');
+    p.classList.add('my-4');
+    // p.innerHTML = areaType + ' ' + area;
+    p.innerHTML = `${areaType} ${area} cm <sup>2</sup> <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+<span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+Convert
+</span>
+</button> `
+    calculationEntry.appendChild(p);
+}
 //Data Validation
 /*
 * 1.set the proper type of the input field(number, date, email)
