@@ -1,4 +1,4 @@
-# LIVE SITE : https://rafi1210.github.io/geometry-genius/
+# LIVE SITE : https://geometry-genius1210.netlify.app/
 
 
 # geometry-genius
